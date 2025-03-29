@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const token = "ciclup123"; // Coloque o mesmo token do painel Meta aqui
+const token = "ciclup123";
 
 app.get("/webhook", (req, res) => {
   const mode = req.query["hub.mode"];

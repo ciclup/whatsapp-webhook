@@ -3,8 +3,9 @@ const app = express();
 
 app.use(express.json());
 
-const VERIFY_TOKEN = "ciclup123";
+const VERIFY_TOKEN = 'ciclup123';
 
+// Endpoint para verificação do webhook
 app.get('/webhook', (req, res) => {
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
@@ -22,6 +23,12 @@ app.get('/webhook', (req, res) => {
   }
 });
 
+// Endpoint root só pra teste visual
+app.get('/', (req, res) => {
+  res.send('Webhook rodando com sucesso!');
+});
+
+// Porta configurável pelo Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

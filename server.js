@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
 
+// Rota básica
 app.get('/', (req, res) => {
-  res.send('Webhook funcionando!');
+  res.send('Webhook rodando com sucesso!');
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+// Escutando na porta fornecida pelo Render ou 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
